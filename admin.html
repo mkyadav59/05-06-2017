@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Amin_login
+		</title>
+		<style>
+			#admin
+			{
+					width:350px;
+					height:350px;
+					background-color:powderblue;
+					box-shadow:10px 10px 5px orange;
+			}
+		</style>
+	</head>
+<body >
+	<center><h2 id="cl">Welcome to Admin Pannel Login</h2></center>
+	<center>
+	<div id="admin" style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg')">
+	<form action="admin.php" method="post" name="fm">
+		<fieldset>
+				<legend>
+					Admin_Pannel
+				</legend>
+				<label>Admi_id</label><input type="text" id="v" name="admin_id" placeholder="enter id"/><br>
+				<label>Password</label><input type="password" name="admin_pass" placeholder="enter pass"/><br>
+				<input type="submit" value="submit">
+								
+		</fieldset>
+	</form>
+</div>
+</center>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script>
+	$(function() {
+   $("form[name='fm']").validate({
+    
+				    rules: {
+				      		admin_id:"required",
+
+				      		admin_pass:{
+        
+       						 	minlength:5,
+        						required:true
+
+        								}
+      							
+      							},
+
+
+				    messages:
+				     {
+				    	
+				    	admin_id:"Please enter the Admi_id First.!",
+				    	admin_pass:{
+				    			
+				    			number:" Please enter number.!",
+				    			required:"Please enter password.!"
+
+				    				},	
+								
+				    },
+				    
+				    submitHandler: function(form) {
+				      form.submit();
+				    }
+  				});
+});
+
+	</script>
+
+</body>
+</html>

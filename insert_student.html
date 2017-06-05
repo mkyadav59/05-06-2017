@@ -1,0 +1,122 @@
+
+<!doctype html>
+<html>
+	<head>
+		<style>
+		#col
+		{
+			width:700px;
+			box-shadow: 10px 10px 10px orange;
+		}
+		</style>
+
+	</head>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     
+<script>
+	$(function() {
+   $("form[name='registration']").validate({
+    
+				    rules: {
+				      		name:"required",
+
+				      		roll:{
+        
+       						 	minlength:3,
+        						required:true
+      							
+      							},
+
+      							address:"required",
+
+      							phone: {
+       								 required:true,
+       								 number:true,
+       								 maxlength:10,
+        							minlength:10
+        						},
+     						 
+        						email:"required"
+				   			},
+
+
+				    messages:
+				     {
+				    	
+				    	name:"Please enter the name",
+				    	roll:{
+				    			required:"Please enter password",
+				    			number:" Please enter number"
+				    		  },	
+								address:"Please enter the address",
+
+				       			phone:{
+				       					 required:"Please enter a contact number",
+        						 		 number:"Please enter a valid number",
+       							         maxlength:"Maxlength is 10",
+       							         minlength:"Minlength is 10"
+
+				       					},
+
+
+				       		email:"Please enter valid email id",
+				    },
+				    
+				    submitHandler: function(form) {
+				      form.submit();
+				    }
+  		});
+});
+
+	</script>
+	</head>
+	<title>dashboard</title>
+<body>
+<center><div>
+	<div id="col" style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg')">
+	<h3>Insert User</h3>
+		<form action="insert_student.php" method="post" name="registration" enctype="multipart/form-data">
+			<fieldset style="width:330px">
+				<legend>
+					ADD USER 
+				</legend>
+			<div style="width:500px;" id="col">
+				<table>
+					<tr>
+						<td><label>Name*:</label></td><td><input type="text" name="name" placeholder="enter name"id="nm"/><br></td><td><span id="div"><?php echo $name1;?></span></td>
+					</tr>
+
+					<tr>
+						<td><label>Roll_No*:</td><td></label><input type="text" name="roll" placeholder="enter roll no" id="roll"/><br></td></td><td><span id="div"><?php echo $roll;?></span></td>
+					</tr>
+
+					<tr>
+						<td><label>Address*:</label></td><td><input type="text" name="address" placeholder="enter address" id="add"/><br></td>
+					</tr>
+
+					<tr>
+						<td><label>Phone Number*:</label></td><td><input type="text" name="phone" placeholder="enter phone number"/><br></td>
+					</tr>
+
+					<tr>
+					<td><label>Email Id*:</label></td><td><input type="email" name="email" placeholder="enter email" id="email"/></td>
+					</tr>
+
+					<tr>
+					<center><td><input type="submit" value="submit" name="submit" ></td></center>
+				</tr>
+				</table>
+			</div>
+			</fieldset>
+
+		</form>
+
+	</div>
+</div>
+</center>
+
+	</body>
+
+</html>
