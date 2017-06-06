@@ -36,10 +36,11 @@ table, td, th {
     border: 1px solid black;
 				}
 
-table {
-    border-collapse: collapse;
+table 
+{
+    	border-collapse: collapse;
     width: 80%;
-}
+	}
 
 </style>
 <br>

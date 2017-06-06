@@ -16,7 +16,7 @@ else
 }
 
 
-		if (empty($_POST["name"])) 
+	/*	if (empty($_POST["name"])) 
   		{
     			$nameerr = "Name is required";
   		}
@@ -47,7 +47,7 @@ else
 			header("Location:admin_dashboard.php?"."nameerr="$nameerr."rollerr="$rollerr."addresserr="$addresserr."phoneerr="$phoneerr."emailerr="$emailerr);
 		}
 		else
-		{
+		{*/
 
 
 				echo $sql="insert into s_registration(name,roll,address,phone,email) values('$name1','$roll_no1','$address1','$phone1','$email')";
@@ -63,6 +63,5 @@ else
 				{
 					echo "fail to update table";
 				}
-		}
 
 ?>

@@ -1,33 +1,41 @@
 <?php
+
 	$id=$_GET['id'];
 	$con= mysqli_connect('localhost','root','root','student_registration');
 	$sql="select * from s_registration where id='$id'";
 	$res=mysqli_query($con,$sql);
 	$row=mysqli_fetch_assoc($res);
+
 ?>
 
 
 
-<html>
+		<html>
 			<head>
 			<style>
-				table, td, th {
-    					border: 1px solid black;
-								}
+				table, td, th 
+				{
+    					
+    				border: 1px solid black;
+    				border-radius: 25px;
+				}
 
-						table {
-    							border-collapse: collapse;
-    							width: 100%;
-    							box-shadow:10px 10px 5px orange;
-								}
-						</style>
-			</head>
+				table 
+				{
+    				border-collapse: collapse;
+    				border-radius: 25px;
+    				width: 100%;
+    				box-shadow:10px 10px 5px green;
+				}
+		</style>
+		</head>
 			<body>
-					<center><div style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg');width:600px;height:auto">
+					<center><div style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg');width:600px;height:auto;border-radius: 25px;">
 					<h3>Update User</h3>	
 	
 					<form method="post" action="" method="post" name="nm"> 
 		   			<center>
+
            			<table>
 					<tr>
 						<td><label>Name*:</label></td><td><input type="text" name="name" placeholder="enter name" value="<?php echo $row['name']; ?>"/><br></td><td style="border:none"><span class="error"><?php echo $nameerr;?></span></td>
@@ -121,10 +129,10 @@
 });
 
 </script>
-
 -->
 </body>
 </html>
+
 <?php
 	if($con)
 	{
@@ -162,14 +170,14 @@
 		}
 		else
 		{
-					
 					$name=$_POST['name'];
 					$roll=$_POST['roll'];
 					$address=$_POST['address'];
 					$phone=$_POST['phone'];
 					$email=$_POST['email'];
 					$id=$_POST['id'];
-					echo $sql="UPDATE s_registration SET name='$name',roll='$roll',address='$address',phone='$phone',email='$email' WHERE id='$id'";
+
+					$sql="UPDATE s_registration SET name='$name',roll='$roll',address='$address',phone='$phone',email='$email' WHERE id='$id'";
 					$result=mysqli_query($con,$sql);
 					if($result)
 					{
