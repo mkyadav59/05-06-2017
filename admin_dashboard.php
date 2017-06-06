@@ -4,8 +4,8 @@ if(!array_key_exists('id', $_SESSION))
 {
 		header('Location:admin.html');
 }
-echo "<center><u><span style='color:blue'>Welcome ".$_SESSION['id']."</span></u></center>";
-echo '<a href="logout.php">LOGOUT</a>';
+echo "<center><u><span style='color:blue'><h2>Welcome ".$_SESSION['id']."<h2></span></u></center>";
+echo '<a href="logout.php" style="text-decoration:none;color:blue;margin-bottom:30px"><h2>LOGOUT !<h2></a>';
 $con= mysqli_connect('localhost','root','root','student_registration');
 
 
@@ -33,10 +33,10 @@ $result=mysqli_query($con,$sql);
 
 <style>
 table, td, th {
-    border: 1px solid black;
+    border: 1px solid brown;
 				}
 
-table {
+table,hr{
     border-collapse: collapse;
     width: 80%;
 }
@@ -46,11 +46,11 @@ table {
 <br>
 
 			
-	<td><a href="insert_student.html?id=<?php echo  $row['id'] ?>" style="text-decoration:none;color:black"><button type="button" style="width:150px;height:50;color:green;text-align:center"><h1>Insert</h1></button></a></td>
-	<center><h2 style="color:brown">STUDENT RECORD</h2></center>
+	<td><a href="insert_student.html?id=<?php echo  $row['id'] ?>" style="text-decoration:none;color:black;"><button type="button" style="width:150px;height:50;color:green;text-align:center"><h1>Insert</h1></button></a></td>
+	<center><h2 style="color:brown"><u>STUDENT RECORD</u></h2></center>
 	<center>
 	
-
+<hr>
 	<table  border: 1px solid black;>
   	<tr>
      <th>ID</th>
