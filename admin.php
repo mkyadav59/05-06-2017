@@ -4,7 +4,7 @@
 	$encryptedpassword = md5($tpass);
 	session_start();
 
-/*hi manoj kumar yadav gdfghdfgh*/
+/*hi manoj*/
 
 $con= mysqli_connect('localhost','root','root','admin_db');
 if(!$con)
