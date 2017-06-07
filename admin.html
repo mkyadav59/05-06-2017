@@ -21,13 +21,17 @@
 	<div id="admin" style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg')">
 	<form action="admin.php" method="post" name="fm">
 		<fieldset>
+			<table>
 				<legend>
 					Admin_Pannel
 				</legend>
-				<label>Admi_id</label><input type="text" id="v" name="admin_id" placeholder="enter id"/><br>
-				<label>Password</label><input type="password" name="admin_pass" placeholder="enter pass"/><br>
-				<input type="submit" value="submit">
-								
+				<tr>
+					<td><label>Admi_id</label></td><td><input type="text" id="v" name="admin_id" placeholder="enter id"/></td>
+				<tr>
+					<td><label>Password</label></td><td><input type="password" name="admin_pass" placeholder="enter pass"/></td>
+				</tr>
+				<td><input type="submit" value="submit"></td>
+			</table>			
 		</fieldset>
 	</form>
 </div>

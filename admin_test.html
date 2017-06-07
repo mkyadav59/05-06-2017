@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+			<title>admin</title>
+			<style>
+			#dv{
+					width: 400px;
+					height: 200px;
+
+				}
+			</style>
+	</head>
+
+<body>
+	<div id="dv">
+		<div id="admin" style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg')">
+	<form action="" method="post" name="fm">
+		<fieldset>
+			<table>
+				<legend>
+					Admin_Pannel
+				</legend>
+				<tr>
+					<td><label>Admin Id:</label></td><td><input type="text" name="admin_id" id="name" placeholder="enter id"/></td><span id="take"></span>
+				</tr>
+				<tr>
+					<td><label>Password:</label></td><td><input type="password" id="pass" name="admin_pass" placeholder="enter pass"/></td><span id="take1"></span>
+				</tr>
+				<tr>
+					<td><input type="submit" value="submit" id="sum"><td>
+				</tr>
+			</table>				
+		</fieldset>
+	</form>
+	</div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script>
+$(document).ready(function()
+{	
+	
+	$('#sum').click(function()
+	{	
+		var a=$('#name').val();
+			alert(a);
+		
+		var b=$('#pass').val();
+			alert(b);
+	});
+
+	$.ajax({
+
+		type:'post',
+		url:'admin_test.php',
+		data:{'name':a,'pass':b},
+		success:function(out)
+		{
+			('#take').html(out);
+
+		}
+
+		});
+	
+
+})
+</script>
+</body>
+</html>

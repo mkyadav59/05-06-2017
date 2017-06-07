@@ -7,72 +7,18 @@
 		{
 			width:700px;
 			box-shadow: 10px 10px 10px orange;
+			border-radius: 30px;
 		}
 		</style>
-
-	</head>
-	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-     
-<script>
-	$(function() {
-   $("form[name='registration']").validate({
+	 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     
-				    rules: {
-				      		name:"required",
+  
+   
 
-				      		roll:{
-        
-       						 	minlength:3,
-        						required:true
-      							
-      							},
-
-      							address:"required",
-
-      							phone: {
-       								 required:true,
-       								 number:true,
-       								 maxlength:10,
-        							minlength:10
-        						},
-     						 
-        						email:"required"
-				   			},
-
-
-				    messages:
-				     {
-				    	
-				    	name:"Please enter the name",
-				    	roll:{
-				    			required:"Please enter password",
-				    			number:" Please enter number"
-				    		  },	
-								address:"Please enter the address",
-
-				       			phone:{
-				       					 required:"Please enter a contact number",
-        						 		 number:"Please enter a valid number",
-       							         maxlength:"Maxlength is 10",
-       							         minlength:"Minlength is 10"
-
-				       					},
-
-
-				       		email:"Please enter valid email id",
-				    },
-				    
-				    submitHandler: function(form) {
-				      form.submit();
-				    }
-  		});
-});
-
-	</script>
-	</head>
 	<title>dashboard</title>
+</head>
 <body>
 <center><div>
 	<div id="col" style="background-image:url('001-wood-melamine-subttle-pattern-background-pat.jpg')">
@@ -101,13 +47,13 @@
 					</tr>
 
 					<tr>
-					<td><label>Email Id*:</label></td><td><input type="email" name="email" placeholder="enter email" id="email"/></td>
+					<td><label>Email Id*:</label></td><td><input type="email" name="email" placeholder="enter email" id="eid"/></td><td><span><h4 id="em" name="eml"></h4></span></td>
 					</tr>
 
 					<tr>
-					<center><td><input type="submit" value="submit" name="submit" ></td></center>
-				</tr>
-				</table>
+						<center><td><input type="submit" value="submit" name="submit" ></td></center>
+					</tr>
+	</table>
 			</div>
 			</fieldset>
 
@@ -117,6 +63,90 @@
 </div>
 </center>
 
-	</body>
 
+ 
+<script>
+$(document).ready(function()
+{	
+	
+	$('#eid').blur(function()
+	{	
+		var a=$('#eid').val();
+
+	$.ajax({
+		url:'email.php',
+		type:'POST',		
+		data:"email1="+a,
+		success:function(html)
+		{
+			$('#em').html(html);
+
+		}
+
+		});
+	
+	});
+
+});
+
+</script>
+<script>
+	$(function() {
+ $("form[name='registration']").validate({
+    
+				    rules: {
+				      		name:"required",
+
+				      		roll:{
+        
+       						 	minlength:3,
+        						required:true
+      							
+      							},
+
+      							address:"required",
+
+      							phone: {
+       								 required:true,
+       								 number:true,
+       								 maxlength:10,
+        							minlength:10
+        						},
+     						 
+        						email:"required"
+				   			},
+	
+
+
+				    messages:
+				     {
+				    	
+				    	name:"Please enter the name",
+				    	roll:{	
+
+				    			required:"Please enter password",
+				    			number:" Please enter number"
+				    		  },	
+								address:"Please enter the address",
+
+				       			phone:{
+				       					 required:"Please enter a contact number",
+        						 		 number:"Please enter a valid number",
+       							         maxlength:"Maxlength is 10",
+       							         minlength:"Minlength is 10"
+
+				       					},
+
+
+				       		email:"Please enter valid email id",
+				    },
+				    
+				    submitHandler: function(form) {
+				      form.submit();
+				    }
+  		});
+});
+
+	</script>
+</body>
 </html>

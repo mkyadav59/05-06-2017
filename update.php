@@ -6,8 +6,73 @@
 	$row=mysqli_fetch_assoc($res);
 ?>
 
+<?php
+	if($con)
+	{
+			//$nameerr= $rollerr= $addresserr = $phoneerr = $emailerr ="";
+
+		if (empty($_POST["name"])) 
+  		{
+    			$nameerr = "Name is required";
+  		}
+
+ 		if (empty($_POST["roll"])) 
+ 		{
+   				
+   				$rollerr = "Roll number is required"; 
+ 		}
+ 
+  		if (empty($_POST["address"])) 
+  		{
+  				$addresserr="Address field is also require";
+ 		}
+  		if (empty($_POST["phone"]))
+  		{
+    			$phoneerr= "Phone number also require";
+  		} 
+		
+  			$email = $_POST["email"];
+    	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+    	{
+     			$emailerr = "Invalid email format";
+   		}
+
+		if ( isset($nameerr) || isset($rollerr) || isset($addresserr) || isset($phoneerr) || isset($emailerr) )
+		{
+
+		}
+		else
+		{
+					
+					$name=$_POST['name'];
+					$roll=$_POST['roll'];
+					$address=$_POST['address'];
+					$phone=$_POST['phone'];
+					$email=$_POST['email'];
+					$id=$_POST['id'];
+
+					$sql="UPDATE s_registration SET name='$name',roll='$roll',address='$address',phone='$phone',email='$email' WHERE id='$id'";
+					$result=mysqli_query($con,$sql);
+					if($result)
+					{
+						//echo "updated successfully";
+						header('Location:admin_dashboard.php');
+					}
+			
+					else
+					{
+						echo "fail to update";
+					}
+				
+		}
 
 
+	}
+	else
+	{
+		die ("CONNECTION FAIL").mysqli_connect_error($con);
+	}
+?>
 <html>
 			<head>
 			<style>
@@ -125,72 +190,7 @@
 -->
 </body>
 </html>
-<?php
-	if($con)
-	{
-			//$nameerr= $rollerr= $addresserr = $phoneerr = $emailerr ="";
 
-		if (empty($_POST["name"])) 
-  		{
-    			$nameerr = "Name is required";
-  		}
-
- 		if (empty($_POST["roll"])) 
- 		{
-   				
-   				$rollerr = "Roll number is required"; 
- 		}
- 
-  		if (empty($_POST["address"])) 
-  		{
-  				$addresserr="Address field is also require";
- 		}
-  		if (empty($_POST["phone"]))
-  		{
-    			$phoneerr= "Phone number also require";
-  		} 
-		
-  			$email = $_POST["email"];
-    	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-    	{
-     			$emailerr = "Invalid email format";
-   		}
-
-		if ( isset($nameerr) || isset($rollerr) || isset($addresserr) || isset($phoneerr) || isset($emailerr) )
-		{
-
-		}
-		else
-		{
-					
-					$name=$_POST['name'];
-					$roll=$_POST['roll'];
-					$address=$_POST['address'];
-					$phone=$_POST['phone'];
-					$email=$_POST['email'];
-					$id=$_POST['id'];
-					echo $sql="UPDATE s_registration SET name='$name',roll='$roll',address='$address',phone='$phone',email='$email' WHERE id='$id'";
-					$result=mysqli_query($con,$sql);
-					if($result)
-					{
-						//echo "updated successfully";
-						header('Location:admin_dashboard.php');
-					}
-			
-					else
-					{
-						echo "fail to update";
-					}
-				
-		}
-
-
-	}
-	else
-	{
-		die ("CONNECTION FAIL").mysqli_connect_error($con);
-	}
-?>		
 
 
 
